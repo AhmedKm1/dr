@@ -748,9 +748,9 @@
     </div>
   </div>
   <nav>
-    <a onclick="showPage('shop')">Gallery</a>
-    <a onclick="showPage('about')">About</a>
-    <a onclick="showPage('donate')">Donate</a>
+    <a href="#shop">Gallery</a>
+    <a href="#about">About</a>
+    <a href="#donate">Donate</a>
     <span class="cart-icon">🛒</span>
   </nav>
 </header>
@@ -768,7 +768,7 @@
     <h2 class="featured-title">Featured Artist</h2>
     <div class="gallery-grid">
 
-      <div class="item" onclick="openModal(0)">
+      <<div class="item" onclick="location.hash='the-soul-of-my-soul'">
         <div class="item-image-wrapper">
           <img src="https://i.imgur.com/nWktisX.png" alt="The Soul of My Soul-Gaza">
           <div class="overlay">
@@ -782,7 +782,7 @@
         </div>
       </div>
 
-      <div class="item" onclick="openModal(1)">
+      <div class="item" onclick="location.hash='birth-then.death'">
         <div class="item-image-wrapper">
           <img src="https://i.imgur.com/9TCiQ9v.png" alt="Birth then Death - Abu Al‑Qumsan">
           <div class="overlay">
@@ -796,7 +796,7 @@
         </div>
       </div>
 
-      <div class="item" onclick="openModal(2)">
+      <div class="item" onclick="location.hash='eyes-that-wont-forget'">
         <div class="item-image-wrapper">
           <img src="https://i.imgur.com/WWytLZB.jpeg" alt="Eyes That Won't Forget -Gaza">
           <div class="overlay">
@@ -810,7 +810,7 @@
         </div>
       </div>
 
-      <div class="item" onclick="openModal(3)">
+      <div class="item" onclick="location.hash='ghost-in-the-eyes'">
         <div class="item-image-wrapper">
           <img src="https://i.imgur.com/YWOQJkG.png" alt="Ghost in the Eyes – Badr Dahlan-Gaza">
           <div class="overlay">
@@ -834,7 +834,7 @@
       <h3>Featured Artist</h3>
       <h2>Ahmed KM</h2>
       <p>I'm a Palestinian artist fighting to survive through my art. Every piece I create is a voice for those who can't speak. My work draws from grief, memory, and hope for a better future. Welcome to DRAZA — a project born from pain, dedicated to Gaza.</p>
-      <button class="read-more-btn" onclick="showPage('about')">Read More</button>
+      <button class="read-more-btn" onclick="location.hash='about'">Read More</button>
     </div>
   </div>
 </div>
@@ -973,7 +973,22 @@ const artworks = [
 ];
 
 let currentArtwork = null;
+  
+function handleRouting() {
+  const hash = window.location.hash.replace('#', '');
 
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+
+  if (hash.startsWith('product-')) {
+    const index = parseInt(hash.split('-')[1]);
+    openModal(index);
+    document.getElementById('shop').classList.add('active');
+  } else if (hash) {
+    document.getElementById(hash)?.classList.add('active');
+  } else {
+    document.getElementById('shop').classList.add('active');
+  }
+}
 function showPage(pageId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById(pageId).classList.add('active');
@@ -992,6 +1007,7 @@ function openModal(index) {
 }
 
 function closeModal() {
+  window.location.hash = 'shop';
   document.getElementById('modal').classList.remove('active');
   document.body.style.overflow = 'auto';
 }
@@ -1008,6 +1024,8 @@ document.addEventListener('keydown', function(event) {
     closeModal();
   }
 });
+window.addEventListener('hashchange', handleRouting);
+window.addEventListener('load', handleRouting);  
 </script>
 
 </body>

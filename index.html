@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRAZA — Scars of Gaza</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:#000;color:#fff;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+
+/* ===== WATERMARK + PROTECTION ===== */
+.watermark-container{
+  position:relative;
+  width:100%;
+  height:100%;
+}
+
+.watermark-container img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* watermark */
+.watermark::after{
+  content:"Ahmed.KM";
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+  font-weight:700;
+  color:rgba(255,255,255,0.08);
+  transform:rotate(-30deg);
+  pointer-events:none;
+}
+
+/* protection layer */
+.protection-layer{
+  position:absolute;
+  inset:0;
+  z-index:5;
+}
+
+/* ===== ORIGINAL STYLES ===== */
+.page-wrapper{max-width:1200px;margin:0 auto;}
+.site-header{padding:30px 60px;border-bottom:1px solid #333;display:flex;justify-content:space-between;align-items:center;}
+.site-nav{display:flex;gap:32px;}
+.site-nav a{color:#aaa;font-size:10px;text-transform:uppercase;cursor:pointer;}
+.site-nav a.active,.site-nav a:hover{color:#fff;}
+
+.page{display:none;}
+.page.active{display:block;}
+
+.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;padding:40px;}
+
+.artwork-card-img-wrap{
+  position:relative;
+  aspect-ratio:1;
+  overflow:hidden;
+  border-radius:10px;
+  background:#111;
+}
+
+.detail-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  padding:40px;
+}
+
+.more-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  padding:40px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="gallery-grid"></div>
+
+<div class="detail-grid">
+  <div id="detail-img-wrap"></div>
+</div>
+
+<div id="more-grid"></div>
+
+<script>
+const artworks = [
+{
+id:"art1",
+title:"Art 1",
+price:100,
+image:"https://i.imgur.com/nWktisX.png"
+},
+{
+id:"art2",
+title:"Art 2",
+price:120,
+image:"https://i.imgur.com/9TCiQ9v.png"
+}
+];
+
+function buildGallery(){
+document.getElementById('gallery-grid').innerHTML = artworks.map(art => `
+<div class="artwork-card">
+  <div class="artwork-card-img-wrap">
+    
+    <div class="watermark-container watermark">
+      <img src="${art.image}" alt="${art.title}" loading="lazy" draggable="false">
+      <div class="protection-layer"></div>
+    </div>
+
+  </div>
+</div>
+`).join('');
+}
+
+function showDetail(art){
+document.getElementById('detail-img-wrap').innerHTML = `
+<div class="watermark-container watermark">
+  <img src="${art.image}" draggable="false">
+  <div class="protection-layer"></div>
+</div>
+`;
+}
+
+function buildMore(){
+document.getElementById('more-grid').innerHTML = artworks.map(a => `
+<div class="more-card">
+  
+  <div class="watermark-container watermark">
+    <img src="${a.image}" loading="lazy" draggable="false">
+    <div class="protection-layer"></div>
+  </div>
+
+</div>
+`).join('');
+}
+
+buildGallery();
+buildMore();
+
+/* disable right click */
+document.addEventListener('contextmenu', e => e.preventDefault());
+</script>
+
+</body>
+</html>

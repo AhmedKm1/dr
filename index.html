@@ -112,23 +112,21 @@
     .outline-btn:hover { background: #222; border-color: #fff; }
 
     /* WATERMARK */
-    .detail-img-wrap { position: relative; display: block; width: 100%; }
+    .detail-img-wrap { position: relative; display: block; width: 100%; overflow: hidden; }
     .watermark-overlay {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      pointer-events: none; overflow: hidden;
+      position: absolute; top: -25%; left: -25%; width: 150%; height: 150%;
+      transform: rotate(-35deg); display: flex; flex-wrap: wrap; align-content: flex-start;
+      pointer-events: none; opacity: 0.42;
     }
-    .watermark-text {
-      transform: rotate(-35deg); opacity: 0.28;
-      text-align: center; color: #fff;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.95);
-      user-select: none; display: flex; flex-direction: column; align-items: center; gap: 6px;
+    .watermark-item {
+      width: 33.33%; padding: 18px 6px; text-align: center; color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.95); user-select: none;
     }
     .wm-name {
-      font-size: 32px; font-weight: 700; letter-spacing: 4px; font-family: 'Playfair Display', serif; display: block;
+      font-size: 13px; font-weight: 700; letter-spacing: 2px; font-family: 'Playfair Display', serif; display: block;
     }
     .wm-sub {
-      font-size: 7px; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Poppins', sans-serif; font-weight: 500; display: block;
+      font-size: 4.5px; letter-spacing: 1px; text-transform: uppercase; font-family: 'Poppins', sans-serif; font-weight: 500; display: block; margin-top: 3px;
     }
 
     /* ARTWORK DETAIL */
@@ -318,10 +316,30 @@
       <div class="detail-img-wrap">
         <img class="detail-img" id="detail-img" src="" alt="">
         <div class="watermark-overlay">
-          <div class="watermark-text">
-            <span class="wm-name">Ahmed.Km</span>
-            <span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span>
-          </div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
+          <div class="watermark-item"><span class="wm-name">Ahmed.Km</span><span class="wm-sub">WATERMARK DOES NOT APPEAR ON THE FINAL ART</span></div>
         </div>
       </div>
       <div>
